@@ -16,11 +16,10 @@ Interactively turn a Single-Page Application into an Universal App
 
 ## Steps from SPA to Universal App
 ### Step 0: SPA with React and Redux
-
 - Fully functional Hello World
 - Stack: Hapi, Webpack, Babel, Hot Reload
 - Run
-  - adapt step in `webpack.config.dev.js` and `package.json` to `step0`
+  - make sure step in `webpack.config.dev.js` and `package.json` is `step0` (which it defaults to)
   - npm start
   - open http://localhost:3000/
 - Hot Reloading
@@ -65,3 +64,37 @@ Interactively turn a Single-Page Application into an Universal App
     - components are stateless and merely pure functions
     - makes data and control flow in a circle
 
+### Migrating to Step 1: Render on Server with the same code
+- Run
+  - make step in `webpack.config.dev.js` and `package.json` `step1`
+  - npm start
+  - open http://localhost:3000/
+- create a new folder `common`
+- move all code from `client` to `common`, only keep `main.js`
+- update `import` in `main.js`
+- make sure it still works
+- in `server/app.js` add route for hapi
+  ```javascript
+  server.route({
+       method:  'GET',
+       path:    '/',
+       handler: renderRoute
+   });
+  ```
+- create and import `renderRoute` module
+- in `renderRoute` we render our application to a string using `renderToString`
+- we import it: `import { renderToString } from 'react-dom/server';`
+- we send this rendered result and the current state of the application to the client
+- we use a template string that is copied from original index.html and insert both rendered html and state into it
+- the client just renders this complete HTML
+- have a look at HTML transferred from server
+- look for checksum
+- look for initial data
+- once JavaScript has been loaded, `client/main.js` gets executed
+- it gets the state transferred from server and uses it to initialize client state
+- it then creates virtual DOM on client
+- it uses checksum to see if rerendering is necessary
+- if not, it just adds a single event listener and we are done
+- reload application and capture screenshots again
+  - there will be just a single frame that displays the HTML sent from server
+- try application, it now behaves like an SPA
