@@ -23,14 +23,13 @@ server.route({
 });
 
 server.route({
-    method:  'GET',
-    path:    '/{param*}',
-    handler: {
-        directory: {
-            path: publicPath
-        }
+  method:  'GET',
+  path:    '/{param*}',
+  handler: {
+    directory: {
+      path: publicPath
     }
+  }
 });
-
 
 server.start(() => console.log(`Server running at: ${server.info.uri}`));

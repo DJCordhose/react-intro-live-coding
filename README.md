@@ -73,6 +73,7 @@ Interactively turn a Single-Page Application into an Universal App
 - move all code from `client` to `common`, only keep `main.js`
 - update `import` in `main.js`
 - make sure it still works
+- compare step0/client to step1/common
 - in `server/app.js` add route for hapi
   ```javascript
   server.route({
@@ -86,6 +87,7 @@ Interactively turn a Single-Page Application into an Universal App
 - we import it: `import { renderToString } from 'react-dom/server';`
 - we send this rendered result and the current state of the application to the client
 - we use a template string that is copied from original index.html and insert both rendered html and state into it
+- compare step0/server to step1/server
 - the client just renders this complete HTML
 - have a look at HTML transferred from server
 - look for checksum
