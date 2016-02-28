@@ -11,7 +11,7 @@ class HelloMessage extends React.Component {
     return <div>
       <input onChange={event => updateGreeting(event.target.value)}
              value={greeting}/>
-      <p>Hello, {greeting}</p>
+      <p>{greeting}, World</p>
       <button
         onClick={() => resetGreeting()}>
         Clear

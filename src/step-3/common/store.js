@@ -2,7 +2,7 @@ import { createStore, combineReducers } from 'redux';
 
 import {UPDATE_GREETING, RESET_GREETING} from './actions';
 
-function greetingReducer(state = 'World', action) {
+function greetingReducer(state = 'Hello', action) {
   switch (action.type) {
     case UPDATE_GREETING:
       return action.greeting;
