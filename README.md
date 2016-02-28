@@ -15,16 +15,17 @@ Interactively turn a Single-Page Application into an Universal App
 - Combines the benefits of a classic Web Application and an SPA
 
 ## Steps from SPA to Universal App
-### Step 0: SPA with React and Redux
+
+### Step 1: SPA with React
 - Fully functional Hello World
 - Stack: Hapi, Webpack, Babel, Hot Reload
 - Run
-  - make sure step in `webpack.config.dev.js` and `package.json` is `step0` (which it defaults to)
+  - make sure step in `webpack.config.dev.js` and `package.json` is `step-1` (which it defaults to)
   - npm start
   - open http://localhost:3000/
 - Hot Reloading
   - Type in some name to send greetings to
-  - Change greeting in `src/step0/client/HelloMessage.js`
+  - Change greeting in `src/step-1/client/HelloMessage.js`
   - See browser being live reloaded
   - State which contains name is conversed
 - How does rendering work?
@@ -35,6 +36,15 @@ Interactively turn a Single-Page Application into an Universal App
   - in between JavaScript has been loaded and executed
     - this is what has rendered the final result
   - you might see a short flicker
+
+### Step 1 Typed: Type Check Using Flow
+- Go through code and add type information
+- http://flowtype.org/docs/react.html#_
+- http://flowtype.org/blog/2016/02/02/Version-0.21.0.html
+- https://github.com/facebook/flow/blob/master/lib/react.js
+
+
+### Step 2: Adding Redux
 - Check how app works in browser source tab
   - index.html
     - mount point
@@ -64,16 +74,16 @@ Interactively turn a Single-Page Application into an Universal App
     - components are stateless and merely pure functions
     - makes data and control flow in a circle
 
-### Migrating to Step 1: Render on Server with the same code
+### Step 3: Render on Server with the same code
 - Run
-  - make step in `webpack.config.dev.js` and `package.json` `step1`
+  - make step in `webpack.config.dev.js` and `package.json` `step-3`
   - npm start
   - open http://localhost:3000/
 - create a new folder `common`
 - move all code from `client` to `common`, only keep `main.js`
 - update `import` in `main.js`
 - make sure it still works
-- compare step0/client to step1/common
+- compare step-2/client to step-3/common
 - in `server/app.js` add route for hapi
   ```javascript
   server.route({
@@ -100,3 +110,4 @@ Interactively turn a Single-Page Application into an Universal App
 - reload application and capture screenshots again
   - there will be just a single frame that displays the HTML sent from server
 - try application, it now behaves like an SPA
+

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "clean": "rimraf ./public/dist",
-    "server": "node ./src/step0/server",
+    "server": "node ./src/step-1-typed/server",
     "start": "npm run clean &&  npm run server"
   },
   "author": "Oliver Zeigermann",
