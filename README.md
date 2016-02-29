@@ -27,24 +27,7 @@ Interactively turn a Single-Page Application into an Universal App
   - Type in some name to send greetings to
   - Change greeting in `src/step-1/client/HelloMessage.js`
   - See browser being live reloaded
-  - State which contains name is conversed
-- How does rendering work?
-  - Open Network Tab in Chrome and capture screenshots (camera symbol)
-  - Notice that there are two frames
-    - initial frame is just the empty static html being served by hapi
-    - 2nd frame contains the dynamically rendered result
-  - in between JavaScript has been loaded and executed
-    - this is what has rendered the final result
-  - you might see a short flicker
-
-### Step 1 Typed: Type Check Using Flow
-- Go through code and add type information
-- http://flowtype.org/docs/react.html#_
-- http://flowtype.org/blog/2016/02/02/Version-0.21.0.html
-- https://github.com/facebook/flow/blob/master/lib/react.js
-
-
-### Step 2: Adding Redux
+  - State which contains name is conserved
 - Check how app works in browser source tab
   - index.html
     - mount point
@@ -57,6 +40,27 @@ Interactively turn a Single-Page Application into an Universal App
     - have a look at the JSX in that method
     - it creates a virtual DOM
     - React compares this to the previous version and just updates the DOM with the diff
+
+### Step 1 Typed: Type Check Using Flow
+- Go through code and add type information
+- http://flowtype.org/docs/react.html#_
+- http://flowtype.org/blog/2016/02/02/Version-0.21.0.html
+- https://github.com/facebook/flow/blob/master/lib/react.js
+
+### Step 2: Adding Redux
+- How does rendering work?
+  - Open Network Tab in Chrome and capture screenshots (camera symbol)
+  - Notice that there are two frames
+    - initial frame is just the empty static html being served by hapi
+    - 2nd frame contains the dynamically rendered result
+  - in between JavaScript has been loaded and executed
+    - this is what has rendered the final result
+  - you might see a short flicker
+- Check how app works in browser source tab
+  - `main.js` (open using CMD-p)
+    - show initial rendering
+  - `HelloMessage.js`
+    - show differences to version in step-1
   - `actions.js`
     - set a breakpoint in `resetGreeting`
     - click on reset button
