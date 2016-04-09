@@ -4,13 +4,13 @@ Preparation
 * In WebStorm 2016.1
 * Start app:
   * Configure `step-1-typed`
-  * in one terminal: `npm start`
+  * in one terminal or npm window: `npm start`
   * open `http://localhost:3000/`
 * Show code in `step-1-typed`
   * open `main.js`
   * open `HellowMessage.js`
 * Start flow:
-  * in another terminal: `npm run check`
+  * in another terminal or npm window: `npm run check`
   * starts flow server
 * Enter presentation mode
   * Also show terminals using alt-F12

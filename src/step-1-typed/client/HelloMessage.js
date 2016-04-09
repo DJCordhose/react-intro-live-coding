@@ -22,6 +22,14 @@ export default class HelloMessage extends React.Component<any, Props, State> {
         in: HTMLInputElement
     };
 
+    constructor(props: Props) {
+        super(props);
+        this.state = {greeting: this.props.greeting};
+        // console.log(this.state.greeting);
+        // ERROR: state does not contain noWay
+        // console.log(this.state.noWay);
+    }
+
     render() {
         return (
             <div>
@@ -34,12 +42,6 @@ export default class HelloMessage extends React.Component<any, Props, State> {
                     Clear
                 </button>
             </div>);
-    }
-    constructor(props: Props) {
-        super(props);
-        this.state = {greeting: this.props.greeting};
-        // ERROR: state does not contain noWay
-        // console.log(this.state.noWay);
     }
 
     reset() {
@@ -74,10 +76,12 @@ export default class HelloMessage extends React.Component<any, Props, State> {
 // https://github.com/brigand/babel-plugin-flow-react-proptypes
 HelloMessage.propTypes = {
     // ERROR Finds out statically, three is no boolean
-    // greeting: React.PropTypes.boolean.isRequired
+    // greeting: React.PropTypes.boolean.isRequired,
 
     // NO ERROR - BUT SHOULD BE ONE: causes runtime warning 
-    // greeting: React.PropTypes.bool.isRequired
+    // greeting: React.PropTypes.bool.isRequired,
 
+    // greeting: React.PropTypes.Object.isRequired
     greeting: React.PropTypes.string.isRequired
+
 };
