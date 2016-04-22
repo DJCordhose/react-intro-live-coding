@@ -38,6 +38,10 @@
         .bad {
             color: #A11 !important;
         }
+        .highlight {
+            color: red !important;
+            font-weight: bolder !important;
+        }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -67,33 +71,29 @@
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
             </p>
-            <p><small><a href="TODO">TODO</a></small></p>
+            <p><small><a href="http://djcordhose.github.io/react-intro-live-coding/2016_react_europe.html#/">djcordhose.github.io/react-intro-live-coding/2016_react_europe.html</a></small></p>
+        </section>
+
+        <!--<section>-->
+            <!--<h2>Flow</h2>-->
+            <!--<h3><a href="http://flowtype.org/" target="_blank">http://flowtype.org/</a></h3>-->
+        <!--</section>-->
+
+        <section>
+            <h2>Flow is a <span class="highlight">static type checker</span>, designed to quickly find errors in JavaScript applications</h2>
         </section>
 
         <section>
-            <h2>Flow</h2>
-            <h3><a href="http://flowtype.org/" target="_blank">http://flowtype.org/</a></h3>
-        </section>
-
-        <section>
-            <h2>Flow is a static type checker, designed to quickly find errors in JavaScript applications</h2>
-        </section>
-
-        <section>
-            <h2>Flow is not a compiler, rather a linter</h2>
-        </section>
-
-        <section>
-            <h3>Example #1: Simple Check</h3>
-            <h3 class="good">Good</h3>
-            <pre><code data-trim>
-const element = &lt;HelloMessage greeting="Hello"/>;
-ReactDOM.render(element, mountNode);
-            </code></pre>
-            <h3 class="bad">Bad</h3>
+            <h3>Example #1: Simple Check with Type Inference</h3>
+            <!--<h3 class="good">Good</h3>-->
+            <!--<pre><code data-trim>-->
+<!--const element = &lt;HelloMessage greeting="Hello"/>;-->
+<!--ReactDOM.render(element, mountNode);-->
+            <!--</code></pre>-->
+            <!--<h3 class="bad">Bad</h3>-->
             <pre><code data-trim>
 // ERROR: Must be a ReactElement
-const element = 'just a string';
+const element = 'just a string'; // type is interred as string
 ReactDOM.render(element, mountNode);
             </code></pre>
         </section>
@@ -110,13 +110,12 @@ type State =  {
     greeting: string;
 };
 class HelloMessage extends React.Component&lt;any, Props, State> {
-    props: Props;
-    state: State;
     constructor(props: Props) {
         super(props);
         this.state = {greeting: this.props.greeting};
     }
 }            </code></pre>
+            <h4>PropTypes on Steroids</h4>
         </section>
 
         <section>
@@ -132,17 +131,17 @@ type GreetingAction =
 
 function updateGreeting(greeting: string): GreetingAction {
     return {
+        // must be UPDATE_GREETING' or 'RESET_GREETING
         type: 'UPDATE_GREETING',
+        // must be a string or null/undefined
         payload: greeting
-        // ERROR: if it is present, it must be a string
-        // payload: 10
     };
 }
             </code></pre>
         </section>
 
         <section>
-            <h2>Catches errors before you even start your app</h2>
+            <h2>Changes the way you write code</h2>
         </section>
 
         <section>
@@ -150,7 +149,7 @@ function updateGreeting(greeting: string): GreetingAction {
         </section>
 
         <section>
-            <h2>Changes the way you write code</h2>
+            <h2>Catches errors before you even start your app</h2>
         </section>
 
         <!--<section>-->
