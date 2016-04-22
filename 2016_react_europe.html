@@ -100,35 +100,46 @@ ReactDOM.render(element, mountNode);
 
         <section>
             <h3>Example #2: Type Declarations</h3>
-            <pre><code data-trim>
+            <pre><code data-trim class="typescript">
 type Props = {
     // ERROR: trying to assign this boolean to state
     // greeting: boolean
     greeting: string
 };
+        </code></pre>
+            <pre><code data-trim class="typescript">
 type State =  {
     greeting: string;
 };
+        </code></pre>
+            <pre><code data-trim class="typescript">
 class HelloMessage extends React.Component&lt;any, Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {greeting: this.props.greeting};
     }
-}            </code></pre>
+}
+        </code></pre>
             <h4>PropTypes on Steroids</h4>
         </section>
 
         <section>
             <h3>Example #3: Redux Action types</h3>
-            <pre><code data-trim class="typescript">
-type Action&lt;ActionType, PayloadType> = {
-    type: ActionType;
-    payload: PayloadType;
-}
+            <!--<pre><code data-trim class="typescript">-->
+<!--type Action&lt;ActionType, PayloadType> = {-->
+    <!--type: ActionType;-->
+    <!--payload: PayloadType;-->
+<!--}-->
+            <!--</code></pre>-->
 
+            <pre><code data-trim class="typescript">
+// Action is a generic type
 type GreetingAction =
     Action&lt;'UPDATE_GREETING' | 'RESET_GREETING', ?string>;
+            </code></pre>
 
+            <pre><code data-trim class="typescript">
+// action creator
 function updateGreeting(greeting: string): GreetingAction {
     return {
         // must be UPDATE_GREETING' or 'RESET_GREETING
