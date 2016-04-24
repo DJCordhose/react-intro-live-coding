@@ -1,8 +1,8 @@
 const path = require('path');
 
 // const mainJs = path.resolve(__dirname, 'src/step-1/client/main.js');
-const mainJs = path.resolve(__dirname, 'src/step-1-typed/client/main.js');
-// const mainJs = path.resolve(__dirname, 'src/step-2-typed/client/main.js');
+// const mainJs = path.resolve(__dirname, 'src/step-1-typed/client/main.js');
+const mainJs = path.resolve(__dirname, 'src/step-2-typed/client/main.js');
 
 const outputPath = path.resolve(__dirname, 'public/dist');
 

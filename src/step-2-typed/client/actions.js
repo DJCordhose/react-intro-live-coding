@@ -23,6 +23,6 @@ export function resetGreeting(): GreetingAction {
         // type: 'RESET_GREETING2'
         type: 'RESET_GREETING',
         // payload may be null or undefined
-        payload: undefined
+        payload: null
     };
 }
