@@ -82,11 +82,7 @@
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
             </p>
-            <!--http://www.qr-code-generator.com-->
-            <!--<img src="2016_devcon_qr.jpg" height="200px">-->
-            <p><small><a href="TODO">TODO</a></small></p>
-
-
+            <p><a href="http://djcordhose.github.io/react-intro-live-coding/2016_md_devdays.html">http://djcordhose.github.io/react-intro-live-coding/2016_md_devdays.html</a></p>
         </section>
         <section>
             <p>
@@ -121,6 +117,7 @@
                 <h3>Single-Page Applications (SPAs) verschieben eure Anwendung in den Browser</h3>
                 <ul class="fragment">
                     <li>UI/UX in klassischen Webanwendungen ist grunsätzlich eingeschränkt
+                    <li>Request-/Response-Zyklus limitiert die Anwendung
                     <li>Nutzer erwartet Bedienbarkeit wie im Desktop
                     <li>klassische Webanwendung in seiner Reinform längst so gut wie ausgestorben
                     <li>selbst in vermeintlich klassischen Anwendungen verstecken sich SPAs oft als Teile
@@ -315,18 +312,23 @@
     window.__INITIAL_STATE__ = ${JSON.stringify(initialData)};
   &lt;/script>
 &lt;/html></code></pre>
-<pre class="fragment"><code data-trim contenteditable>
-// client
+<pre class="fragment"><code data-trim contenteditable class="javascript">
+// server: redux offers complete state from single store
+const html = ReatDom.renderToString(...);
+reply(renderFullPage(html, store.getState()));
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="javascript">
+// client: init store from complete state
 const initialState = window.__INITIAL_STATE__;
-
+const store = createStore(..., initialState);
 </code></pre>
                 </section>
             <section>
                     <h3>Wie unterdrücken wir ein Re-Rendering auf dem Client?</h3>
                 <div class="fragment">
                     <img src="universal-checksum.png">
-                    <!--<p><small>Copyright 2016, embarc</small></p>-->
                 </div>
+                <p class="fragment">Wenn Checksummen auf Server- und Client-Seite übereinstimmen wird nicht neu gerendert</p>
                 </section>
 
         <section>
@@ -342,9 +344,13 @@ const initialState = window.__INITIAL_STATE__;
         <section>
             <h2>Zusammenfassung</h2>
             <ul>
-                <li>Single-Page Applications ...
-                <li>Universal Web Apps ...
-                <li>TODO ...
+                <li class="fragment">Single-Page Applications erlauben bestes UX
+                <li class="fragment">Klassische Web-Apps erlauben serverseitiges Rendering
+                <li class="fragment">Universal Web Apps verbinden die Fähigkeiten der beiden
+                <li class="fragment">React mit Redux sind ideal für Universal Rendering
+                <li class="fragment">React-Komponeten können auf dem Client und dem Server gerendert werden
+                <li class="fragment">Checksummen erlauben ideal Weiterverarbeitung von Vorgerendertem
+                <li class="fragment">Redux hält zentralen Zustand der leicht tranferiert werden kann
             </ul>
         </section>
 
