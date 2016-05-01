@@ -7,7 +7,7 @@
   },
   "scripts": {
     "clean": "rimraf ./public/dist",
-    "server": "node ./src/step-2-typed/server",
+    "server": "node ./src/step-3/server",
     "start": "npm run clean &&  npm run server",
     "check": "flow"
   },

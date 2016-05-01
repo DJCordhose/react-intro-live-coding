@@ -5,11 +5,11 @@ export default class HelloMessage extends React.Component {
         return (
             <div>
                 <input ref="in"
-                       onChange={this.updateModel.bind(this)}
+                       onChange={(event) => this.updateModel(event)}
                        value={this.state.greeting} />
                 <p>{this.state.greeting}, World</p>
                 <button
-                    onClick={this.reset.bind(this)}>
+                    onClick={() => this.reset()}>
                     Clear
                 </button>
             </div>);

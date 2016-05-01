@@ -22,12 +22,12 @@ function renderFullPage(html, initialData) {
 }
 
 export default function(request, reply) {
-  const html =
+  const html =  
     renderToString(
         <Provider store={store}>
             <HelloMessage />
         </Provider>
     );
-  reply(renderFullPage(html));
+  reply(renderFullPage(html, store.getState()));
 };
 
