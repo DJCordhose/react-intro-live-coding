@@ -20022,7 +20022,7 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -20046,25 +20046,31 @@
 	    _inherits(HelloMessage, _React$Component);
 	
 	    _createClass(HelloMessage, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            return _react2.default.createElement(
-	                "div",
+	                'div',
 	                null,
-	                _react2.default.createElement("input", { ref: "in",
-	                    onChange: this.updateModel.bind(this),
+	                _react2.default.createElement('input', { ref: 'in',
+	                    onChange: function onChange(event) {
+	                        return _this2.updateModel(event);
+	                    },
 	                    value: this.state.greeting }),
 	                _react2.default.createElement(
-	                    "p",
+	                    'p',
 	                    null,
 	                    this.state.greeting,
-	                    ", World"
+	                    ', World'
 	                ),
 	                _react2.default.createElement(
-	                    "button",
+	                    'button',
 	                    {
-	                        onClick: this.reset.bind(this) },
-	                    "Clear"
+	                        onClick: function onClick() {
+	                            return _this2.reset();
+	                        } },
+	                    'Clear'
 	                )
 	            );
 	        }
@@ -20080,13 +20086,13 @@
 	    }
 	
 	    _createClass(HelloMessage, [{
-	        key: "reset",
+	        key: 'reset',
 	        value: function reset() {
-	            this.setState({ greeting: "" });
+	            this.setState({ greeting: '' });
 	            this.refs.in.focus();
 	        }
 	    }, {
-	        key: "updateModel",
+	        key: 'updateModel',
 	        value: function updateModel(event) {
 	            this.setState({ greeting: event.target.value });
 	        }
