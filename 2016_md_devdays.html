@@ -238,15 +238,15 @@ ReactDOM.render(&lt;HelloMessage greeting="Hello"/>, mountNode);
                     </ul>
                 </section>
 
-    <section>
-        <h3>Flux</h3>
-        <div class="fragment">
-            <img src="embarc/Ebene_Flux_Markiert.png" style="height: 500px;">
-            <p><small>Copyright 2016, embarc</small></p>
-        </div>
-    </section>
+    <!--<section>-->
+        <!--<h3>Flux</h3>-->
+        <!--<div class="fragment">-->
+            <!--<img src="embarc/Ebene_Flux_Markiert.png" style="height: 500px;">-->
+            <!--<p><small>Copyright 2016, embarc</small></p>-->
+        <!--</div>-->
+    <!--</section>-->
 <section>
-    <h2>Motivation</h2>
+    <h2>Motivation für eine Flux-Architektur</h2>
 </section>
 
         <section>
@@ -271,7 +271,7 @@ ReactDOM.render(&lt;HelloMessage greeting="Hello"/>, mountNode);
         </section>
 
         <section>
-            <h3>Redux</h3>
+            <h3>Redux, eine Flux Implementierung</h3>
             <div class="fragment">
                 <img src="embarc/FluxFWs_Redux.png" style="height: 300px;">
                 <p><small>Copyright 2016, embarc</small></p>
@@ -365,6 +365,16 @@ function greetingReducer(state = 'Hello', action) {
                 </section>
 
         <section>
+            <h3>Zusammenfassung Flux/Redux</h3>
+            <ul class="fragment">
+                <li>Ein Architektur-Ansatz für UIs
+                <li>Löst Probleme des klassischen MVC mit Observer-Pattern
+                <li>Kontroll-/Datenfluss in eine Richtung
+                <li>Gesamter Zustand in einem zentralen Store
+            </ul>
+        </section>
+
+        <section>
             <h2>Teil III</h2>
             <h3>Universal Rendering</h3>
         </section>
@@ -374,7 +384,13 @@ function greetingReducer(state = 'Hello', action) {
             <ul class="fragment">
                 <li>SEO
                 <li>First-Page-Impressions
-                <li>Statisches Rendering für Social Media etc.
+                <li>Preview, z.B.
+                <ul>
+                    <li>bei der Vorschau von Suchergebnissen
+                    <li> oder dem Teilen von Links durch Social Media
+                </ul>
+
+            </li>
                 <li>Progressive Enhancement
             </ul>
         </section>
@@ -389,11 +405,12 @@ function greetingReducer(state = 'Hello', action) {
         </section>
 
         <section>
-            <h3>Universal Rendering mit React</h3>
+            <h3>Universal Rendering mit React und Redux</h3>
             <ul class="fragment">
                 <li>First-Page-Impression wird auf dem Server gerendert
                 <li>Links werden als normale HTML-Links in die Seite gerendert
-                <li>Beliebig viele andere Links werden ebenfalls statisch gerendert
+                <li>Beliebig viele andere Seiten werden ebenfalls statisch gerendert
+                <li>Passt bestens zum React-Router (behandelt alle Anfragen zentral)
                 <li>Läuft dann (zumindest zum Teil) auch ohne JavaScript
                 <li>Links typischerweise über Router
                 <li>Code fast 100% geteilt zwischen Client und Server
@@ -452,6 +469,7 @@ server.route({
     handler: renderRoute
 });
 </code></pre>
+            <!--<h4 class="fragment">Jede Seite wird über denselben Handler gerendert</h4>-->
 <pre class="fragment"><code data-trim contenteditable class="javascript">
 function renderRoute(request, reply) {
   const html =
@@ -509,7 +527,7 @@ const store = createStore(..., initialState);
             <ul>
                 <li class="fragment">Aller Zustand muss beim serverseitigen Rendering komplett vorliegen
                 <li class="fragment">Integration mit Router
-                <li class="fragment">Unterschiedliche Locals auf Server und Client
+                <li class="fragment">Unterschiedliche Locales auf Server und Client
                 <li class="fragment">Zeitliche veränderliche Daten (Timestamp, Börsenkurs)
             </ul>
         </section>
