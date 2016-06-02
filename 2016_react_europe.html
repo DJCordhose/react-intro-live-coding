@@ -100,27 +100,24 @@ ReactDOM.render(element, mountNode);
 
         <section>
             <h3>Example #2: Type Declarations</h3>
-            <pre class="fragment"><code data-trim class="typescript">
+            <pre class="fragment"data-fragment-index="1"><code data-trim class="typescript">
 type State =  {
     greeting: string;
 };
         </code></pre>
-            <pre class="fragment"><code data-trim class="typescript">
+            <pre class="fragment" data-fragment-index="3"><code data-trim class="typescript">
 type Props = {
     // ERROR: trying to assign this boolean to state
     // greeting: boolean
     greeting: string
 };
         </code></pre>
-            <pre><code data-trim class="typescript">
+            <pre><code data-trim class="typescript" data-noescape>
 class HelloMessage extends React.Component&lt;any, Props, State> {
-  // ...
-}
-        </code></pre>
-            <pre class="fragment"><code data-trim class="typescript">
-constructor(props: Props) {
-    super(props);
-    this.state = {greeting: this.props.greeting};
+<span class="fragment" data-fragment-index="2">    constructor(props: Props) {
+        super(props);
+        this.state = {greeting: this.props.greeting};
+    }</span>
 }
         </code></pre>
             <h4>PropTypes on Steroids</h4>
@@ -128,28 +125,27 @@ constructor(props: Props) {
 
         <section>
             <h3>Example #3: Redux Action types</h3>
-            <pre class="fragment"><code data-trim class="typescript">
-type GreetingAction =
-    Action&lt;'UPDATE_GREETING' | 'RESET_GREETING', ?string>;
-            </code></pre>
-
-            <pre class="fragment"><code data-trim class="typescript">
+            <pre class="fragment" data-fragment-index="2"><code data-trim class="typescript">
 type Action&lt;ActionType, PayloadType> = {
     type: ActionType;
     payload: PayloadType;
 }
             </code></pre>
+            <pre class="fragment" data-fragment-index="1"><code data-trim class="typescript">
+type GreetingAction =
+    Action&lt;'UPDATE_GREETING' | 'RESET_GREETING', ?string>;
+            </code></pre>
 
-            <pre><code data-trim class="typescript">
+
+            <pre><code data-trim class="typescript" data-noescape>
 // action creator
 function updateGreeting(greeting: string): GreetingAction {
-            </code></pre>
-            <pre class="fragment"><code class="typescript">    return {
+<span class="fragment" data-fragment-index="3">    return {
         // must be UPDATE_GREETING' or 'RESET_GREETING
         type: 'UPDATE_GREETING',
         // must be a string or null/undefined
         payload: greeting
-    };
+    };</span>
 }
             </code></pre>
         </section>
