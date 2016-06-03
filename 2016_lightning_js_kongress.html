@@ -66,12 +66,12 @@
     <div class="slides">
         <section>
             <h1>Checking React with Flow</h1>
-            <p>ReactEurope 2016</p>
+            <p>JS Kongress 2016</p>
             <p>
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
             </p>
-            <p><small><a href="http://djcordhose.github.io/react-intro-live-coding/2016_react_europe.html#/">djcordhose.github.io/react-intro-live-coding/2016_react_europe.html</a></small></p>
+            <p><small><a href="http://djcordhose.github.io/react-intro-live-coding/2016_lightning_js_kongress.html">djcordhose.github.io/react-intro-live-coding/2016_lightning_js_kongress.html</a></small></p>
         </section>
 
         <!--<section>-->
@@ -85,13 +85,13 @@
 
         <section>
             <h3>Example #1: Simple Check with Type Inference</h3>
-            <!--<h3 class="good">Good</h3>-->
-            <!--<pre><code data-trim>-->
-            <!--const element = &lt;HelloMessage greeting="Hello"/>;-->
-            <!--ReactDOM.render(element, mountNode);-->
-            <!--</code></pre>-->
-            <!--<h3 class="bad">Bad</h3>-->
-            <pre><code data-trim class="line-numbers typescript">
+            <h4 class="good">Good</h4>
+            <pre class="fragment"><code data-trim>
+const element = &lt;HelloMessage greeting="Hello"/>;
+ReactDOM.render(element, mountNode);
+            </code></pre>
+            <h4 class="fragment bad">Bad</h4>
+            <pre class="fragment"><code data-trim class="line-numbers typescript">
 const element = 'just a string'; // type is interred as string
 ReactDOM.render(element, mountNode);
             </code></pre>
