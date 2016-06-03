@@ -133,25 +133,30 @@ class HelloMessage extends React.Component&lt;any, Props, State> {
 
         <section>
             <h3>Example #3: Redux Action types</h3>
-            <pre class="fragment" data-fragment-index="2"><code data-trim class="typescript">
-type Action&lt;ActionType, PayloadType> = {
-    type: ActionType;
-    payload: PayloadType;
-}
-            </code></pre>
+            <!--<pre class="fragment" data-fragment-index="2"><code data-trim class="typescript">-->
+<!--type Action&lt;ActionType, PayloadType> = {-->
+    <!--actionType: ActionType;-->
+    <!--payload: PayloadType;-->
+<!--}-->
+            <!--</code></pre>-->
+            <!--<pre class="fragment" data-fragment-index="3"><code data-trim class="typescript">-->
+<!--type GreetingAction =-->
+    <!--Action&lt;'UPDATE_GREETING' | 'RESET_GREETING', ?string>;-->
+            <!--</code></pre>-->
+
             <pre class="fragment" data-fragment-index="1"><code data-trim class="typescript">
-type GreetingAction =
-    Action&lt;'UPDATE_GREETING' | 'RESET_GREETING', ?string>;
+type GreetingAction = {
+    actionType: 'UPDATE_GREETING' | 'RESET_GREETING';
+    payload: ?string;
+}
             </code></pre>
 
 
             <pre><code data-trim class="typescript" data-noescape>
 // action creator
 function updateGreeting(greeting: string): GreetingAction {
-<span class="fragment" data-fragment-index="3">    return {
-        // must be UPDATE_GREETING' or 'RESET_GREETING
-        type: 'UPDATE_GREETING',
-        // must be a string or null/undefined
+<span class="fragment" data-fragment-index="2">    return {
+        actionType: 'UPDATE_GREETING',
         payload: greeting
     };</span>
 }
