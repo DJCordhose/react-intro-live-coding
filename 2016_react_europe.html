@@ -96,7 +96,9 @@ const element = 'just a string'; // type is interred as string
 ReactDOM.render(element, mountNode);
             </code></pre>
 
-            <pre class="fragment"><code>src/step-1-typed/client/main.js:12
+            <div class="fragment">
+                <p>Message from flow</p>
+            <pre><code>src/step-1-typed/client/main.js:12
  12: ReactDOM.render(element, mountNode);
      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call of method `render`
  12: ReactDOM.render(element, mountNode);
@@ -104,6 +106,9 @@ ReactDOM.render(element, mountNode);
 237:     element: React$Element&lt;Config>,
                   ^^^^^^^^^^^^^^^^^^^^^ React$Element.
 See lib: /private/tmp/flow/flowlib_1ddc81a6/react.js:237</code></pre>
+            </div>
+
+
         </section>
 
         <section>
