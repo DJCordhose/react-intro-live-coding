@@ -161,7 +161,9 @@ type GreetingAction = {
 // action creator
 function updateGreeting(greeting: string): GreetingAction {
 <span class="fragment" data-fragment-index="2">    return {
+        // must be 'UPDATE_GREETING' or 'RESET_GREETING'
         actionType: 'UPDATE_GREETING',
+        // must be a string or null/undefined
         payload: greeting
     };</span>
 }
