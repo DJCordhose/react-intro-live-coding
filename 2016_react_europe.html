@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Checking React code with Flow</title>
+    <title>Checking React with Flow</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -65,7 +65,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h1>Checking React code with Flow</h1>
+            <h1>Checking React with Flow</h1>
             <p>ReactEurope 2016</p>
             <p>
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
@@ -91,11 +91,19 @@
 <!--ReactDOM.render(element, mountNode);-->
             <!--</code></pre>-->
             <!--<h3 class="bad">Bad</h3>-->
-            <pre><code data-trim>
-// ERROR: Must be a ReactElement
+            <pre><code data-trim class="typescript">
 const element = 'just a string'; // type is interred as string
 ReactDOM.render(element, mountNode);
             </code></pre>
+
+            <pre class="fragment"><code>src/step-1-typed/client/main.js:12
+ 12: ReactDOM.render(element, mountNode);
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call of method `render`
+ 12: ReactDOM.render(element, mountNode);
+                     ^^^^^^^ string. This type is incompatible with
+237:     element: React$Element&lt;Config>,
+                  ^^^^^^^^^^^^^^^^^^^^^ React$Element.
+See lib: /private/tmp/flow/flowlib_1ddc81a6/react.js:237</code></pre>
         </section>
 
         <section>
