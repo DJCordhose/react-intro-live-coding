@@ -85,16 +85,18 @@
 
         <section>
             <h3>Example #1: Simple Check with Type Inference</h3>
-            <h4 class="good">Good</h4>
-            <pre class="fragment"><code data-trim>
-const element = &lt;HelloMessage greeting="Hello"/>;
-ReactDOM.render(element, mountNode);
-            </code></pre>
-            <h4 class="fragment bad">Bad</h4>
-            <pre class="fragment"><code data-trim class="line-numbers typescript">
+            <!--<h4 class="fragment good">Good</h4>-->
+            <!--<pre class="fragment"><code data-trim>-->
+<!--const element = &lt;HelloMessage greeting="Hello"/>;-->
+<!--ReactDOM.render(element, mountNode);-->
+            <!--</code></pre>-->
+            <!--<h4 class="fragment bad">Bad</h4>-->
+            <pre><code data-trim class="line-numbers typescript">
 const element = 'just a string'; // type is interred as string
 ReactDOM.render(element, mountNode);
             </code></pre>
+
+            <p class="fragment">Will this work?</p>
 
             <div class="fragment">
                 <p>Message from flow</p>
@@ -164,11 +166,24 @@ function updateGreeting(greeting: string): GreetingAction {
         </section>
 
         <section>
-            <h2>Allows for reliable refactoring (at least in WebStorm)</h2>
+            <h2>Better IDE support</h2>
         </section>
 
         <section>
             <h2>Catches errors before you even start your app</h2>
+        </section>
+
+        <section>
+            <h2>Thanks</h2>
+            <p>
+                <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+            </p>
+            <br>
+            <p><a href="http://djcordhose.github.io/react-intro-live-coding/2016_lightning_js_kongress.html">djcordhose.github.io/react-intro-live-coding/2016_lightning_js_kongress.html</a></p>
+            <p>Checking React and Redux code with Flow: <a href="http://djcordhose.github.io/react-intro-live-coding/2016_jsunconf.html">
+                djcordhose.github.io/react-intro-live-coding/2016_jsunconf.html</a></p>
+            <p>Flow vs TypeScript: <a href="http://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html">
+                djcordhose.github.io/flow-vs-typescript/2016_hhjs.html</a></p>
         </section>
 
         <!--<section>-->
